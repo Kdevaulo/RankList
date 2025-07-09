@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Kdevaulo.RankList.Model.Params;
 
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UIElements;
 
 using ScrollView = Kdevaulo.RankList.UI.ScrollView;
@@ -12,21 +13,25 @@ namespace Kdevaulo.RankList
     public class EntryPoint : MonoBehaviour
     {
         [SerializeField] private UIDocument _uiDocument;
+        [SerializeField] private VisualTreeAsset _rankTemplate;
 
         private ScrollView _scrollView;
 
         private void Awake()
         {
-            _scrollView = new ScrollView(_uiDocument);
+            Assert.IsNotNull(_uiDocument);
+            Assert.IsNotNull(_rankTemplate);
+
+            _scrollView = new ScrollView(_uiDocument, _rankTemplate);
         }
 
         public void Start()
         {
             var t = new List<Rank>()
             {
-                new Rank() { Id = 0, Image = null, LocalizedName = "Test1", Score = 0 },
-                new Rank() { Id = 1, Image = null, LocalizedName = "Test2", Score = 100 },
-                new Rank() { Id = 2, Image = null, LocalizedName = "Test3", Score = 200 },
+                new Rank() { Id = 0, Texture = null, LocalizedName = "Test1", Score = 0 },
+                new Rank() { Id = 1, Texture = null, LocalizedName = "Test2", Score = 100 },
+                new Rank() { Id = 2, Texture = null, LocalizedName = "Test3", Score = 200 },
             };
 
             _scrollView.Initialize(t);

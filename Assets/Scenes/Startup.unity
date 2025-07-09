@@ -293,6 +293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uiDocument: {fileID: 1546650880}
+  _rankTemplate: {fileID: 9197481963319205126, guid: a20574acd84ca8349931b9dc8e44e188, type: 3}
 --- !u!4 &1710211384
 Transform:
   m_ObjectHideFlags: 0

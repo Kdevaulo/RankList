@@ -1,5 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/ScrollStyle.uss?fileID=7433441132597879392&amp;guid=fc9a137f50d412444bd9cdc35736f4f7&amp;type=3#ScrollStyle" />
     <ui:VisualElement name="Panel" style="flex-grow: 1;">
-        <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" />
+        <ui:ListView name="RanksList" horizontal-scrolling="true" style="flex-grow: 1; flex-direction: row;" />
     </ui:VisualElement>
 </ui:UXML>

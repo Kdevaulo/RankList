@@ -7,6 +7,6 @@ namespace Kdevaulo.RankList.Model.Params
         public int Id;
         public int Score;
         public string LocalizedName;
-        public Sprite Image;
+        public Texture2D Texture;
     }
 }
