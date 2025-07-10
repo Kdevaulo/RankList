@@ -28,10 +28,14 @@
 /*.rankItem {*/
 /*    background-image: linear-gradient(rgba(191, 213, 255, 0) 0%, rgba(191, 213, 255, 0.25) 100%);*/
 /*}*/
+.rankIndicator {
+    border-left-width: 1px;
+    border-left-color: rgba(191, 213, 255, .25);
+}
 
 .rankGainedIndicator {
     border-left-width: 1px;
-    border-left-color: rgb(118, 255, 51);
+    border-left-color: rgba(118, 255, 51, 1);
 }
 
 .lastIndicator {
