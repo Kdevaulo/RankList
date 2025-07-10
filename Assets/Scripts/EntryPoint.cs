@@ -20,8 +20,9 @@ namespace Kdevaulo.RankList
         [SerializeField] private VisualTreeAsset _rankIndicatorTemplate;
 
         private RanksScroll _ranksScrollView;
-        private RankDataProvider _rankDataProvider;
         private RanksLocalizer _ranksLocalizer;
+        private RankDataProvider _rankDataProvider;
+        private ScrollDragHandler _scrollDragHandler;
 
         private void Awake()
         {
@@ -31,10 +32,13 @@ namespace Kdevaulo.RankList
             _ranksScrollView = new RanksScroll(_uiDocument, _rankTemplate, _rankIndicatorTemplate);
             _rankDataProvider = new RankDataProvider();
             _ranksLocalizer = new RanksLocalizer();
+            _scrollDragHandler = new ScrollDragHandler(_uiDocument);
         }
 
         public async void Start()
         {
+            _scrollDragHandler.Initialize();
+
             // todo: loading screen enable
             var ranks = await _rankDataProvider.GetDataAsync();
             _ranksLocalizer.Localize(ranks);

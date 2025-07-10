@@ -26,7 +26,7 @@ namespace Kdevaulo.RankList
 
             var loadedRanks = new List<Rank>();
 
-            for (int i = 0; i < ranksCount; i++)
+            for (var i = 0; i < ranksCount; i++)
             {
                 var currentRank = ranksCollection[i];
                 var texture = await GetTextureAsync(currentRank.id);
