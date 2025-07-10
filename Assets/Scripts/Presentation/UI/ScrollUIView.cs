@@ -6,15 +6,15 @@ using UnityEngine.UIElements;
 
 namespace Kdevaulo.RankList.UI
 {
-    public class ScrollView
+    public class ScrollUIView
     {
         private readonly UIDocument _uiDocument;
         private readonly VisualTreeAsset _rankTemplate;
 
-        private ListView _ranksListView;
+        private ScrollView _ranksScrollView;
         private List<Rank> _itemsCollection;
 
-        public ScrollView(UIDocument uiDocument, VisualTreeAsset rankTemplate)
+        public ScrollUIView(UIDocument uiDocument, VisualTreeAsset rankTemplate)
         {
             _uiDocument = uiDocument;
             _rankTemplate = rankTemplate;
@@ -23,17 +23,18 @@ namespace Kdevaulo.RankList.UI
         public void Initialize(List<Rank> items)
         {
             _itemsCollection = items;
-            _ranksListView = _uiDocument.rootVisualElement.Q<ListView>("RanksList");
+            _ranksScrollView = _uiDocument.rootVisualElement.Q<ScrollView>("RanksList");
 
-            _ranksListView.makeItem = MakeListItem;
-            _ranksListView.bindItem = SetupElement;
-            _ranksListView.itemsSource = items;
+            // _ranksScrollView.Add();
+            //     .makeItem = MakeListItem;
+            // _ranksScrollView.bindItem = SetupElement;
+            // _ranksScrollView.itemsSource = items;
         }
 
         public void Dispose()
         {
-            _ranksListView.makeItem = null;
-            _ranksListView.bindItem = null;
+            // _ranksScrollView.makeItem = null;
+            // _ranksScrollView.bindItem = null;
         }
 
         private void SetupElement(VisualElement element, int index)

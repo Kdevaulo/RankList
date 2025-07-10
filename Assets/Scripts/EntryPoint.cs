@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 
 using Kdevaulo.RankList.Model.Params;
+using Kdevaulo.RankList.UI;
 
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UIElements;
-
-using ScrollView = Kdevaulo.RankList.UI.ScrollView;
 
 namespace Kdevaulo.RankList
 {
@@ -15,14 +14,14 @@ namespace Kdevaulo.RankList
         [SerializeField] private UIDocument _uiDocument;
         [SerializeField] private VisualTreeAsset _rankTemplate;
 
-        private ScrollView _scrollView;
+        private ScrollUIView _scrollView;
 
         private void Awake()
         {
             Assert.IsNotNull(_uiDocument);
             Assert.IsNotNull(_rankTemplate);
 
-            _scrollView = new ScrollView(_uiDocument, _rankTemplate);
+            _scrollView = new ScrollUIView(_uiDocument, _rankTemplate);
         }
 
         public void Start()

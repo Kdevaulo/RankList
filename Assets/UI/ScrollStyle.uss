@@ -1,3 +1,37 @@
 .scroll-view {
     flex-grow: 1;
 }
+
+.rankItem:hover {
+    border-width: 2px;
+    border-color: rgb(191, 213, 255);
+}
+
+.rankItem:hover .rankImage {
+    margin-top: -30px;
+}
+
+.rankItemActive:hover {
+    border-width: 2px;
+    border-color: rgb(118, 255, 51);
+}
+
+/*.rankItem {*/
+/*    background-image: linear-gradient(rgba(191, 213, 255, 0) 0%, rgba(191, 213, 255, 0.25) 100%);*/
+/*}*/
+
+.rankGainedIndicator {
+    border-left-width: 1px;
+    border-left-color: rgb(118, 255, 51);
+}
+
+.lastIndicator {
+    opacity: .25;
+    background-color: rgb(191, 213, 255);
+}
+
+.lastGainedIndicator {
+    opacity: 1;
+    background-color: rgb(118, 255, 51);
+}
+
