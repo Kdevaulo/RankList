@@ -292,6 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d086211408f2bf3469d68a7c175c4a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentScore: 361
   _uiDocument: {fileID: 1546650880}
   _rankTemplate: {fileID: 9197481963319205126, guid: a20574acd84ca8349931b9dc8e44e188, type: 3}
   _rankIndicatorTemplate: {fileID: 9197481963319205126, guid: 57eb5797859e3464ab7fc07a2f193c61, type: 3}

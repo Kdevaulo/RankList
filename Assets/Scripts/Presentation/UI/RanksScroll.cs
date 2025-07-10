@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-using Kdevaulo.RankList.Model.Params;
+using Kdevaulo.RankList.Presentation.Params;
 using Kdevaulo.RankList.Presentation.Utilities;
 
 using UnityEngine;

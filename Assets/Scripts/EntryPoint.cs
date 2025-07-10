@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 
-using Kdevaulo.RankList.Model.Params;
+using Kdevaulo.RankList.Presentation.Localization;
+using Kdevaulo.RankList.Presentation.Params;
 using Kdevaulo.RankList.UI;
 
 using UnityEngine;
@@ -11,11 +12,16 @@ namespace Kdevaulo.RankList
 {
     public class EntryPoint : MonoBehaviour
     {
+        [Min(0)]
+        [SerializeField] private int _currentScore;
+
         [SerializeField] private UIDocument _uiDocument;
         [SerializeField] private VisualTreeAsset _rankTemplate;
         [SerializeField] private VisualTreeAsset _rankIndicatorTemplate;
 
         private RanksScroll _ranksScrollView;
+        private RankDataProvider _rankDataProvider;
+        private RanksLocalizer _ranksLocalizer;
 
         private void Awake()
         {
@@ -23,18 +29,22 @@ namespace Kdevaulo.RankList
             Assert.IsNotNull(_rankTemplate);
 
             _ranksScrollView = new RanksScroll(_uiDocument, _rankTemplate, _rankIndicatorTemplate);
+            _rankDataProvider = new RankDataProvider();
+            _ranksLocalizer = new RanksLocalizer();
         }
 
-        public void Start()
+        public async void Start()
         {
-            var t = new List<Rank>()
-            {
-                new Rank() { Id = 0, Texture = null, LocalizedName = "Test1", Score = 0 },
-                new Rank() { Id = 1, Texture = null, LocalizedName = "Test2", Score = 10000 },
-                new Rank() { Id = 2, Texture = null, LocalizedName = "Test3", Score = 200000 },
-            };
+            // todo: loading screen enable
+            var ranks = await _rankDataProvider.GetDataAsync();
+            _ranksLocalizer.Localize(ranks);
+            InitializeScroll(ranks);
+        }
 
-            _ranksScrollView.Initialize(t, 25000);
+        private void InitializeScroll(List<Rank> ranks)
+        {
+            _ranksScrollView.Initialize(ranks, _currentScore);
+            // todo: loading screen disable
         }
     }
 }
