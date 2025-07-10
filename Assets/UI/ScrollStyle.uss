@@ -1,5 +1,6 @@
-.scroll-view {
-    flex-grow: 1;
+.rankItem {
+    border-width: 2px;
+    border-color: transparent;
 }
 
 .rankItem:hover {
@@ -14,6 +15,14 @@
 .rankItemActive:hover {
     border-width: 2px;
     border-color: rgb(118, 255, 51);
+}
+
+.rankProgressBar {
+    visibility: hidden;
+}
+
+.rankProgressBarActive {
+    visibility: visible;
 }
 
 /*.rankItem {*/

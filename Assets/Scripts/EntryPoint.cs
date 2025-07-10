@@ -13,15 +13,16 @@ namespace Kdevaulo.RankList
     {
         [SerializeField] private UIDocument _uiDocument;
         [SerializeField] private VisualTreeAsset _rankTemplate;
+        [SerializeField] private VisualTreeAsset _rankIndicatorTemplate;
 
-        private ScrollUIView _scrollView;
+        private RanksScroll _ranksScrollView;
 
         private void Awake()
         {
             Assert.IsNotNull(_uiDocument);
             Assert.IsNotNull(_rankTemplate);
 
-            _scrollView = new ScrollUIView(_uiDocument, _rankTemplate);
+            _ranksScrollView = new RanksScroll(_uiDocument, _rankTemplate, _rankIndicatorTemplate);
         }
 
         public void Start()
@@ -29,11 +30,11 @@ namespace Kdevaulo.RankList
             var t = new List<Rank>()
             {
                 new Rank() { Id = 0, Texture = null, LocalizedName = "Test1", Score = 0 },
-                new Rank() { Id = 1, Texture = null, LocalizedName = "Test2", Score = 100 },
-                new Rank() { Id = 2, Texture = null, LocalizedName = "Test3", Score = 200 },
+                new Rank() { Id = 1, Texture = null, LocalizedName = "Test2", Score = 10000 },
+                new Rank() { Id = 2, Texture = null, LocalizedName = "Test3", Score = 200000 },
             };
 
-            _scrollView.Initialize(t);
+            _ranksScrollView.Initialize(t, 25000);
         }
     }
 }
